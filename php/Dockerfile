@@ -12,7 +12,7 @@ RUN ln -sf /usr/bin/php5 /usr/bin/php
 RUN ln -sf /usr/share/zoneinfo/Australia/Brisbane /etc/localtime && \
     echo "Australia/Brisbane" > /etc/timezone
 
-RUN apk add --no-cache autoconf g++ binutils make openssl-dev curl git
+RUN apk add --no-cache autoconf g++ binutils make openssl-dev curl git re2c file
 
 RUN sed -i "$ s|\-n||g" /usr/bin/pecl
 

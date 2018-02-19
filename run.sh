@@ -42,7 +42,9 @@ docker run -d --name=passwork-php --restart=unless-stopped \
     # -e MONGODB_PASSWORD="mypass" \
     # -v /home/mmckenzie/projects/passwork/passwork:/var/www/html \
 
-docker run -d --name=passwork-nginx --restart=unless-stopped --link passwork-php:php-fpm -p 9080:80 --volumes-from=passwork-php passwork.nginx
+docker run -d --name=passwork-nginx --restart=unless-stopped \
+    -e UPSTREAM_HOST="passwork-php" \
+    --link passwork-php:passwork-php -p 9080:80 --volumes-from=passwork-php passwork.nginx
 # docker run -d --name=passwork-nginx --restart=unless-stopped --link passwork-php:php-fpm -p 9080:80 passwork.nginx
 
 sleep 20
