@@ -1,0 +1,7 @@
+FROM nginx:1.19-alpine
+
+ENV PHP_FPM_HOST=php
+ENV PHP_FPM_PORT=9000
+COPY ./nginx/site.conf.template /etc/nginx/templates/
+COPY ./passwork/ /usr/share/nginx/html/
+EXPOSE 80

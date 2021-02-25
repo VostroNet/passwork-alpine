@@ -1,3 +1,2 @@
-passwork/keys
-passwork/.env
-passwork/run.sh
+keys/
+app*/

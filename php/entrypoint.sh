@@ -33,10 +33,15 @@ secret=$HTTP_SECRET
 domain=$HTTP_DOMAIN
 noreplyEmail=$EMAIL_NOREPLY
 lang=$LANG
-disableLanguageChange=$LANG_DISABLE
-hideSocialNetworks=$HIDE_SOCIAL
 superAdminEmail=$SUPERADMIN_EMAIL
 csrf=$CSRF
+override = Off
+randomPasswordLength = 10; min=8,max=50, override=On will always get setting from config.ini
+globalGroupNames = On; override=On will always get setting from config.ini
+forced2fa = Off; forces user to enable 2fa, disables mobile login until user enables both 2fa options (override=On will always get setting from config.ini)
+hash = sha256;
+searchSalt =
+disableSameSiteCookie = On
 
 [ban]
 time= $BAN_TIME 
@@ -61,5 +66,5 @@ enableLogin=$BACKUP_ENABLE_LOGIN
 EOF
 
 # cat /var/www/html/app/config/config.ini
-echo "running php5"
-/usr/bin/php-fpm5
+echo "running php"
+php-fpm7 -F
