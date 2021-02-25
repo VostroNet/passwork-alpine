@@ -1,6 +1,6 @@
 FROM php:7.3-fpm-alpine
 
-RUN apk add --no-cache build-base autoconf bash ssmtp libedit-dev ldb-dev libldap openldap-dev libxml2-dev git rsyslog
+RUN apk add --no-cache build-base autoconf bash ssmtp libedit-dev ldb-dev libldap openldap-dev libxml2-dev git rsyslog mongodb-tools
 RUN pecl install mongodb && \
     docker-php-ext-install opcache readline json ldap xml bcmath mbstring && \
     git clone --branch 3.4.x --depth=1 "https://github.com/phalcon/cphalcon.git" && \
